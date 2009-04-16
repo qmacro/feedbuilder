@@ -1,0 +1,11 @@
+application: feedbuilder
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /data
+  static_dir: data
+- url: /.*
+  script: feedbuilder.py
+
