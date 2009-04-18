@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="self" href="http://www.pipetree.com:8888/data/test.xml" />
 
   <title>Test feed</title>
   <link href="http://www.pipetree.com:8888/feed/" />
-  <id>test-feed-1</id>
+  <id>http://www.pipetree.com:8888/test-feed-1</id>
+  <updated>2009-04-15T01:08:37.5678Z</updated>
+  <author><name>pipetree</name></author>
 
-  
     <entry>
-      <id>agtmZWVkYnVpbGRlcnILCxIFRW50cnkYAgw</id>
+      <id>http://www.pipetree.com:8888/test-feed-1/agtmZWVkYnVpbGRlcnILCxIFRW50cnkYAgw</id>
       <title>two</title>
-      <updated>2009-04-15T08:08:37.5678</updated>
-      <link>http://b</link>
+      <updated>2009-04-15T08:08:37.5678Z</updated>
+      <link href="http://b" />
       <summary>second item</summary>
     </entry>
   
     <entry>
-      <id>agtmZWVkYnVpbGRlcnILCxIFRW50cnkYAQw</id>
+      <id>http://www.pipetree.com:8888/test-feed-1/gtmZWVkYnVpbGRlcnILCxIFRW50cnkYAQw</id>
       <title>first</title>
-      <updated>2009-04-15T06:53:52.1234</updated>
-      <link>http://a</link>
+      <updated>2009-04-15T06:53:52.1234Z</updated>
+      <link href="http://a" />
       <summary>one</summary>
     </entry>
   

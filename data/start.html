@@ -3,8 +3,32 @@
   </head>
   <body>
     <h1>Feedbuilder</h1>
-    <a href='/entryform'>Entry Form</a>
-    <br/>
-    <a href='/feed/'>Feed</a>
+
+    <a href='/feed/'>Feed</a><br />
+<a href='/data/login.html'>Administration</a>
+ <h2>Entryform</h2>
+    <form action="/feed/" method="POST">
+
+    <table cellspacing="5">
+      <tr valign="top">
+        <td align="right">Title</td>
+        <td><input type="text" name="title" size=60></td>
+      </tr>
+      <tr valign="top">
+        <td align="right">Link</td>
+        <td><input type="text" name="link" size=60></td>
+      </tr>
+      <tr valign="top">
+        <td align="right">Description</td>
+        <td><textarea name="summary" rows="3" cols="60"></textarea></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Post" /></td>
+      </tr>
+    </table>
+
+    </form>
+
   </body>
 </html>

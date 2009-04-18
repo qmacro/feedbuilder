@@ -1,4 +1,4 @@
-import os, cgi, logging
+import os, cgi, logging, datetime
 from google.appengine.ext.webapp import template
 
 from google.appengine.ext import webapp
@@ -21,6 +21,7 @@ class Feed(webapp.RequestHandler):
     entries = entry_query.fetch(15)
 
     template_values = {
+      'now': datetime.datetime.now(),
       'feedname': 'Test feed',
       'feedlink': self.request.url,
       'feedid': 'test-feed-1',
@@ -45,8 +46,24 @@ class EntryForm(webapp.RequestHandler):
     path = os.path.join(os.path.dirname(__file__), 'entryform.html')
     self.response.out.write(template.render(path, template_values))
 
+class GotoAdmin(webapp.RequestHandler):
+  def post(self):
+    un = self.request.get('theusername')
+    sc = self.request.get('secretcode')
+    if (sc == "qwerty" and un == "Joseph") or (sc == "uiop" and un == "Dj"):
+      self.redirect('/_ah/admin/')
+    else:
+      self.redirect('/data/start.html')
 
-application = webapp.WSGIApplication([('/', StartPage),('/feed/', Feed),('/entryform', EntryForm)], debug=True)
+
+application = webapp.WSGIApplication(
+  [
+    ('/', StartPage),
+    ('/feed/', Feed),
+    ('/gotoadmin/', GotoAdmin),
+    ('/entryform', EntryForm)
+  ],
+  debug=True)
 
 def main():
   run_wsgi_app(application)

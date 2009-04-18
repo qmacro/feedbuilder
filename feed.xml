@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
+  <link rel="self" href="{{ feedlink }}" />
   <title>{{ feedname }}</title>
   <link href="{{ feedlink }}" />
-  <id>{{ feedid }}</id>
+  <id>{{ feedlink }}{{ feedid }}</id>
+  <updated>{{ now.date }}T{{ now.time }}Z</updated>
+  <author><name>Pipetree</name></author>
 
   {% for entry in entries %}
     <entry>
-      <id>{{ entry.key }}</id>
+      <id>{{ feedlink }}{{ feedid }}/{{ entry.key }}</id>
       <title>{{ entry.title }}</title>
-      <updated>{{ entry.updated.date }}T{{ entry.updated.time }}</updated>
-      <link>{{ entry.link }}</link>
+      <updated>{{ entry.updated.date }}T{{ entry.updated.time }}Z</updated>
+      <link href="{{ entry.link }}" />
       <summary>{{ entry.summary }}</summary>
     </entry>
   {% endfor %}
